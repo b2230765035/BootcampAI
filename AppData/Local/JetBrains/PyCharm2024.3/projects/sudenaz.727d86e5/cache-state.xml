@@ -1,0 +1,196 @@
+<project version="4">
+  <component name="JSRemoteModulesUsagesDetector">
+    <modules>
+      <module url="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js" />
+      <module url="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js" />
+      <module url="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
+      <module url="https://alcdn.msauth.net/browser/2.19.0/js/msal-browser.min.js" />
+      <module url="https://appsforoffice.dod.cdn.office.net/appsforoffice/lib/beta/hosted/excel.js" />
+      <module url="https://appsforoffice.edog.officeapps.live.com/lib/beta/hosted/word.js" />
+      <module url="https://appsforoffice.gcch.cdn.office.net/appsforoffice/lib/beta/hosted/excel.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/excel.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/outlook.debug.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/powerpoint.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/word.debug.js" />
+      <module url="https://appsforoffice.microsoft.com/lib/beta/hosted/word.js" />
+      <module url="https://cdn.plot.ly/plotly-2.17.0.min.js" />
+      <module url="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" />
+      <module url="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.4.9/jquery.sumoselect.min.js" />
+      <module url="https://code.jquery.com/jquery-1.11.3.min.js" />
+      <module url="https://transcriptionserver.z13.web.core.windows.net/OneNote.js" />
+      <module url="https://wordsgs.officeapps.live.com/wordsgs/home/js.cookie.min.js?GATE=37631f2e-a7fa-44d9-9acd-b0fe38a0328f" />
+      <module url="https://wordsgs.officeapps.live.com/wordsgs/home/main.min.js?GATE=37631f2e-a7fa-44d9-9acd-b0fe38a0328f" />
+    </modules>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <directories>
+      <directory path="$PROJECT_DIR$/.vscode/extensions/aaron-bond.better-comments-3.0.2/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/batisteo.vscode-django-1.15.0/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/donjayamanne.python-environment-manager-1.2.4/out/client/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/esbenp.prettier-vscode-11.0.0/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/kamikillerto.vscode-colorize-0.12.1/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/kevinrose.vsc-python-indent-1.18.0/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/ms-python.python-2024.21.2024111501-win32-x64/out/client/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/njpwerner.autodocstring-0.6.1/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/ritwickdey.liveserver-5.7.9/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/visualstudioexptteam.intellicode-api-usage-examples-0.2.9/dist/server/gaia-lib-typescript/node_modules" />
+      <directory path="$PROJECT_DIR$/.vscode/extensions/visualstudioexptteam.vscodeintellicode-1.3.2/node_modules" />
+      <directory path="$PROJECT_DIR$/AppData/Local/Microsoft/TypeScript/5.2/node_modules" />
+      <directory path="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/node_modules" />
+      <directory path="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/node_modules" />
+    </directories>
+  </component>
+  <component name="NodeModulesIndexingRulesProvider">
+    <option name="lazyPackagesToIndex">
+      <set>
+        <option value="webpack" />
+      </set>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/.vscode/extensions/aaron-bond.better-comments-3.0.2/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/batisteo.vscode-django-1.15.0/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/dbaeumer.vscode-eslint-3.0.10/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/donjayamanne.python-environment-manager-1.2.4/out/client/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/donjayamanne.python-environment-manager-1.2.4/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/donjayamanne.python-extension-pack-1.7.0/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ecmel.vscode-html-css-2.0.11/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/esbenp.prettier-vscode-11.0.0/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/formulahendry.auto-close-tag-0.5.15/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/formulahendry.auto-rename-tag-0.1.10/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/github.copilot-1.245.0/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/github.copilot-chat-0.21.2/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/github.copilot-chat-0.22.1/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/github.copilot-chat-0.22.2/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/kamikillerto.vscode-colorize-0.12.1/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/kevinrose.vsc-python-indent-1.18.0/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ms-python.debugpy-2024.12.0-win32-x64/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ms-python.python-2024.21.2024111501-win32-x64/out/client/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ms-python.python-2024.21.2024111501-win32-x64/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ms-python.vscode-pylance-2024.11.2/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/njpwerner.autodocstring-0.6.1/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/pkief.material-icon-theme-5.14.1/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/ritwickdey.liveserver-5.7.9/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/crossnote/dependencies/reveal/plugin/multiplex/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/visualstudioexptteam.intellicode-api-usage-examples-0.2.9/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/visualstudioexptteam.vscodeintellicode-1.3.2/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/wholroyd.jinja-0.0.8/package.json" />
+      <path value="$PROJECT_DIR$/.vscode/extensions/xabikos.javascriptsnippets-1.8.0/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Microsoft/TypeScript/5.2/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/bat/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/clojure/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/coffeescript/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/configuration-editing/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/cpp/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/csharp/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/css-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/css-language-features/server/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/css/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/dart/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/debug-auto-launch/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/debug-server-ready/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/diff/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/docker/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/emmet/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/extension-editing/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/fsharp/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/git-base/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/git/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/github-authentication/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/github/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/go/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/groovy/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/grunt/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/gulp/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/handlebars/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/hlsl/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/html-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/html-language-features/server/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/html/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ini/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ipynb/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/jake/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/java/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/javascript/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/json-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/json-language-features/server/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/json/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/julia/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/latex/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/less/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/log/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/lua/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/make/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/markdown-basics/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/markdown-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/markdown-math/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/media-preview/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/merge-conflict/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/microsoft-authentication/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ms-vscode.js-debug-companion/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ms-vscode.js-debug/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ms-vscode.vscode-js-profile-table/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/notebook-renderers/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/npm/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/objective-c/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/perl/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/php-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/php/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/powershell/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/pug/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/python/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/r/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/razor/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/references-view/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/restructuredtext/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/ruby/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/rust/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/scss/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/search-result/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/shaderlab/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/shellscript/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/simple-browser/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/sql/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/swift/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-abyss/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-defaults/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-kimbie-dark/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-monokai-dimmed/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-monokai/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-quietlight/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-red/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-seti/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-solarized-dark/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-solarized-light/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/theme-tomorrow-night-blue/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/tunnel-forwarding/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/typescript-basics/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/typescript-language-features/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/vb/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/xml/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/yaml/package.json" />
+      <path value="$PROJECT_DIR$/AppData/Local/Programs/Microsoft VS Code/resources/app/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="RestoreUpdateTree"><![CDATA[{}]]></component>
+  <component name="VcsDirectoryMappingCache">
+    <option name="roots">
+      <set>
+        <option value="$PROJECT_DIR$" />
+      </set>
+    </option>
+    <option name="vcsName" value="Git" />
+  </component>
+</project>
