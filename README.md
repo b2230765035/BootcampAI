@@ -16,7 +16,7 @@
 - Esra Tosun  
 - Metehan Murad Tali  
 - Alperen Tekeli  
-- Mustafa (Soyadı belirtilmedi)
+- Mustafa
 
 ---
 
