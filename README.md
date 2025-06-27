@@ -1,81 +1,98 @@
-# BootcampAI
-Yapay Zekâ Destekli Etüt Takip Uygulaması
-#Takım & Ürün İsmi
-Bootcamp Grup 175 - Etüt...(belirlenmedi)
-#Takım ve Ürün hakkında bilgiler
-Takım üyeleri
-Sudenaz Şahan
-Esra Tosun 
-Metehan Murad Tali
-Alperen Tekeli
-Mustafa
+# 🧠 BootcampAI
+## Yapay Zekâ Destekli Etüt Takip Uygulaması
 
-Ürün Tanımı
-Etüt, öğrencilerin bireysel çalışma süreçlerini verimli hale getirmeyi amaçlayan, yüz takibi ve yapay zekâ destekli analiz sunan bir etüt platformudur. Öğrenciler çalışırken ekran takibiyle ne kadar odaklandıkları ölçülür, çalıştıkları içeriklerde zorlandıkları noktalar yapay zekâ tarafından analiz edilerek onlara özel bilgi baloncukları ve özetler sunulur.
-Etüt, öğrencilerin sadece bireysel verimliliğini artırmakla kalmaz, aynı zamanda rehber öğretmenlerin öğrencilerin gelişimlerini takip edebilmesine de olanak tanır. Platformda yer alan sosyal etkileşim alanları sayesinde öğrenciler sorularını paylaşabilir, arkadaşlarıyla fikir alışverişi yapabilir ve birlikte öğrenmenin keyfini yaşayabilir.
-Amacımız, öğrencilerin sürdürülebilir bir öğrenme disiplini geliştirmesine katkı sağlamak, takıldığı yerlerde onları yalnız bırakmayan akıllı bir yardımcı sunmak ve öğrenmeyi daha etkili, sosyal ve şeffaf hale getirmektir.
+---
 
-Ürün Özellikleri
-Yüz Takibi ve Odak Ölçümü
-Kullanıcı çalışma süresince ekran takibi yapılır. Face Tracking teknolojisi ile kullanıcının ekrana bakma süresi ölçülerek odaklanma düzeyi analiz edilir.
+## 👥 Takım & Ürün İsmi
 
-Akıllı İçerik Analizi
-Kullanıcı bir sayfada uzun süre kaldığında, yapay zekâ o sayfanın içeriğiyle ilgili arka planda araştırma yapar ve ilgili bilgi baloncukları sunar. Öğrenciye konuyla ilgili ek açıklamalar veya görseller gösterilir.
+**Takım Adı:** Bootcamp Grup 175  
+**Ürün Adı:** Etüt (İsim henüz belirlenmedi)
 
-Etüt Analizi ve Raporlama
-Her etüt sonunda öğrencinin:
+---
 
-Toplam çalışma süresi
+## 📌 Takım Üyeleri
 
-Ekrana odaklı kaldığı süre
+- Sudenaz Şahan  
+- Esra Tosun  
+- Metehan Murad Tali  
+- Alperen Tekeli  
+- Mustafa (Soyadı belirtilmedi)
 
-Takıldığı sayfalar
+---
 
-Genel verimlilik skoru
-belirlenerek bir analiz raporu sunulur.
+## 📝 Ürün Tanımı
 
-Rehberlik Paneli
-Rehber öğretmenler, öğrencilerin etüt geçmişlerini görüp; çalışma süresi, odaklanma düzeyi, takıldığı konular gibi verilere ulaşabilir. Öğrenciye özel öneriler sunabilir.
+**Etüt**, öğrencilerin bireysel çalışma süreçlerini verimli hale getirmeyi amaçlayan, **yüz takibi** ve **yapay zekâ destekli analiz** sunan bir etüt platformudur. Öğrenciler çalışırken ekran takibiyle ne kadar odaklandıkları ölçülür, çalıştıkları içeriklerde zorlandıkları noktalar yapay zekâ tarafından analiz edilerek onlara özel **bilgi baloncukları** ve **özetler** sunulur.
 
-AI Destekli Gelişim Önerileri
-Yapay zekâ, öğrencinin geçmiş etütlerini analiz ederek:
+Etüt, bireysel verimliliği artırmakla kalmaz; rehber öğretmenlerin öğrencilerin gelişimlerini takip etmesini sağlar. Sosyal etkileşim alanlarıyla öğrencilerin sorularını paylaşmasına ve birlikte öğrenmesine olanak tanır.
 
-Hangi konularda zorlandığını
+Amacımız, öğrencilerin sürdürülebilir bir öğrenme disiplini geliştirmesine katkı sağlamak ve onların yanında olan akıllı bir yardımcı sunarak öğrenmeyi daha **etkili**, **sosyal** ve **şeffaf** hale getirmektir.
 
-Nerelerde tekrar çalışması gerektiğini
+---
 
-Hangi kaynakların işine yarayabileceğini
-öneri olarak sunar.
+## 🔧 Ürün Özellikleri
 
-Konu ve Seviye Takibi
-Öğrenciler hangi konuları tamamladıklarını işaretleyebilir. Platform, öğrencinin seviyesine göre uygun önerilerde bulunur.
+### 🎥 Yüz Takibi ve Odak Ölçümü
+- Face Tracking teknolojisiyle ekrana bakma süresi ölçülür, odak seviyesi analiz edilir.
 
-Karşılaştırmalı Başarı ve İlerleme
-İsteyen öğrenciler:
+### 📖 Akıllı İçerik Analizi
+- Sayfada uzun kalındığında, AI arka planda içerikle ilgili araştırma yaparak bilgi baloncukları sunar.
 
-Başarı sırasını
+### 📊 Etüt Analizi ve Raporlama
+- Toplam çalışma süresi  
+- Odaklanma süresi  
+- Takıldığı sayfalar  
+- Genel verimlilik skoru  
+  → Etüt sonunda sunulur.
 
-Tamamlanan konu sayısını
+### 🧑‍🏫 Rehberlik Paneli
+- Öğrencinin geçmiş verileri rehber öğretmenle paylaşılır.  
+- Öğrenciye özel öneriler sunulur.
 
-Kendi seviyesini diğerleriyle karşılaştırabilir.
+### 🤖 AI Destekli Gelişim Önerileri
+- Zorlandığı konular  
+- Tekrar çalışması gereken alanlar  
+- Uygun kaynak önerileri sunulur.
 
-Öğrenci Sohbet Alanı
-Öğrenciler, sorularını paylaşabilecekleri ve birlikte çalışabilecekleri bir sohbet alanına sahip olurlar. Grup oluşturabilir, soru çözebilir veya fikir alışverişi yapabilirler.
+### 📚 Konu ve Seviye Takibi
+- Öğrenci hangi konuları tamamladığını işaretleyebilir.  
+- Seviye bazlı öneriler sunulur.
 
-Çalışma Özetleri Paylaşımı
-Öğrenciler etüt sonunda çıkan özetlerini isterlerse paylaşarak arkadaşlarından öneri alabilir veya başkalarına örnek olabilir.
+### 🆚 Karşılaştırmalı Başarı ve İlerleme
+- Başarı sırası  
+- Tamamlanan konular  
+- Diğer öğrencilerle karşılaştırma yapılabilir.
 
-Çoklu Dil Desteği
-Platform, Türkçe ve İngilizce başta olmak üzere farklı dillerde kullanılabilir. Bu sayede uluslararası öğrenciler de platformdan faydalanabilir.
+### 💬 Öğrenci Sohbet Alanı
+- Grup çalışmaları, soru paylaşımları ve sohbet desteklidir.
 
-Güvenli Giriş ve Kullanıcı Koruması
-E-mail ile güvenli giriş sistemi sunulur. Kullanıcıların verileri gizlilik ilkelerine uygun olarak korunur.
+### 📝 Çalışma Özetleri Paylaşımı
+- Etüt sonunda çıkan özetler arkadaşlarla paylaşılabilir.
 
-Hedef Kitle
-Etüt’ün hedef kitlesi, başta Z Kuşağı ve üniversite öğrencileri olmak üzere, verimli çalışma alışkanlıkları geliştirmek isteyen, teknolojiyi aktif kullanan ve bireysel gelişimine önem veren genç bireylerden oluşmaktadır.
-Özellikle sınavlara hazırlanan, ödev ve proje sürecinde olan, dikkat dağınıklığı yaşayan veya çalışma motivasyonu düşük öğrenciler bu platformdan yüksek fayda sağlar. Yurtta, kütüphanede veya evde bireysel çalışan öğrenciler, sistemin yüz takibi ve yapay zekâ destekli analiz özellikleri sayesinde daha disiplinli bir şekilde ilerleyebilir.
-Ayrıca, rehberlik servisi desteğine ihtiyaç duyan, ancak yeterince birebir ilgi göremeyen öğrenciler için de VerimEtüt büyük bir boşluğu doldurur. Akademik başarıyı artırmak isteyenler kadar, kendi seviyesini ölçmek ve arkadaşlarıyla sosyal öğrenme ortamı kurmak isteyenler de uygulamanın sunduğu etkileşimli özelliklerden yararlanabilir.
-Ek olarak, eğitimde fırsat eşitliği arayan, kendi gelişim sürecini takip edebileceği dijital araçlara ihtiyaç duyan öğrenciler ile rehber öğretmenler, eğitim koçları ve veli grupları da platformun hedef kullanıcıları arasındadır.
+### 🌍 Çoklu Dil Desteği
+- Türkçe ve İngilizce başta olmak üzere çoklu dil desteği mevcuttur.
+
+### 🔐 Güvenli Giriş ve Veri Koruması
+- Email ile kayıt yapılır.  
+- Kullanıcı verileri gizlilik esasına göre saklanır.
+
+---
+
+## 🎯 Hedef Kitle
+
+Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrencileridir**. Teknolojiyi aktif kullanan, verimli çalışma alışkanlıkları kazanmak isteyen ve bireysel gelişimine önem veren genç bireyler bu uygulamadan doğrudan fayda sağlar.
+
+### 💡 Öne Çıkan Kitleler:
+- Sınavlara hazırlanan öğrenciler  
+- Ödev ve proje yoğunluğu yaşayan bireyler  
+- Dikkat dağınıklığı yaşayanlar  
+- Rehberlik desteğine ihtiyaç duyan ama yeterince ilgi göremeyen öğrenciler  
+- Eğitimde fırsat eşitliği arayan bireyler  
+- Rehber öğretmenler, eğitim koçları ve veli grupları
+
+---
+
+
 
 
 
