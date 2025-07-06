@@ -91,6 +91,56 @@ Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrenci
 - Rehber öğretmenler, eğitim koçları ve veli grupları
 
 ---
+## Sprint 1 Notları
+- Sprint Tarihleri: (20 Haziran 2025 – 6 Temmuz 2025)
+### Genel Amaç ve Planlama
+- Sprint 1'de uygulamanın temel planlaması ve teknik altyapısı üzerine çalışıldı:
+
+- Uygulama Konusu belirlendi. Eğitim alanında, öğrenci-veli-öğretmen-yonetici rollerini destekleyen, yapay zeka destekli bir mobil uygulama olarak planlandı.
+
+- Temel feature listesi çıkarıldı.
+
+- Uygulamanın platformu mobil olarak belirlendi.
+
+- Teknoloji olarak Flutter + Firebase seçildi.
+
+- Takım içi rol dağılımı yapıldı.
+
+### Yapılan Teknik Çalışmalar
+
+✅ Dosya Mimarisi oluşturuldu. Proje yapısı temiz ve sürdürülebilir bir şekilde organize edildi.
+
+✅ Flutter – Firebase Auth bağlantısı kurularak kullanıcı kimlik doğrulama altyapısı hazırlandı.
+
+✅ Firebase Cloud Functions kullanılarak backend tarafında güvenlik ve işlem mantığı desteklendi.
+
+✅ Başlangıç UserModel'i tanımlanarak temel kullanıcı veri modeli oluşturuldu.
+
+✅ Giriş ve Kayıt Ekranı oluşturuldu, çalışır durumda.
+
+✅ Bloc kütüphanesi projeye entegre edildi. Uygulama artık dinamik state management destekliyor.
+
+### Sprint Değerlendirmesi
+- Geliştirme süreci başarılı şekilde ilerlemekte.
+
+- Temel altyapı tamamlandı, sonraki sprintte temel ekranlar ve işlevsel özellikler geliştirilecek.
+
+- Takım içi iletişim ve görev dağılımı verimliydi.
+
+### Sprint 1 Sonrası Trello Board Özeti
+
+![image](https://github.com/user-attachments/assets/8dab9d1d-1898-439e-b58f-36fa0d3331b3)
+
+### Uygulama Kayıt Sayfası Ekran Görüntüsü
+
+![image](https://github.com/user-attachments/assets/a3ea7473-61c1-450b-9399-8437bb0e2234)
+
+
+
+
+
+
+
 
 
 
