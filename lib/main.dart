@@ -1,6 +1,7 @@
-import 'package:bootcamp175/production/presentation/bloc/user_bloc_bloc.dart';
+import 'package:bootcamp175/production/presentation/bloc/classroom_bloc/classroom_bloc.dart';
+import 'package:bootcamp175/production/presentation/bloc/user_bloc/user_bloc_bloc.dart';
 import 'package:bootcamp175/production/presentation/pages/auth_page/auth_page.dart';
-import 'package:bootcamp175/production/presentation/pages/main/main_page.dart';
+import 'package:bootcamp175/production/presentation/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserBlocBloc>(create: (context) => UserBlocBloc()),
+        BlocProvider<ClassroomBloc>(create: (context) => ClassroomBloc()),
       ],
       child: MaterialApp(
         initialRoute: "/auth",

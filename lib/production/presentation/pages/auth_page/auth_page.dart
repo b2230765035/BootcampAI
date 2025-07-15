@@ -4,7 +4,7 @@ import 'package:bootcamp175/config/material/themes/text_themes.dart';
 import 'package:bootcamp175/config/variables/doubles/main_doubles.dart';
 import 'package:bootcamp175/config/variables/strings/auth_strings.dart';
 import 'package:bootcamp175/core/extensions/sizes.dart';
-import 'package:bootcamp175/production/presentation/bloc/user_bloc_bloc.dart';
+import 'package:bootcamp175/production/presentation/bloc/user_bloc/user_bloc_bloc.dart';
 import 'package:bootcamp175/production/presentation/pages/auth_page/widgets/login_form.dart';
 import 'package:bootcamp175/production/presentation/pages/auth_page/widgets/register_form.dart';
 import 'package:bootcamp175/production/presentation/widgets/loading_dialog_widget.dart';

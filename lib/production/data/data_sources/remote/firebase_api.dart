@@ -209,11 +209,11 @@ class FbFstoreApi {
         );
       }
       QueryDocumentSnapshot userPrivateSnapshot = userPrivateDoc.docs[0];
-      UserModel userPublicModel = UserModel.fromJson(
+      UserModel userPrivateModel = UserModel.fromJson(
         userPrivateSnapshot.data() as Map<String, dynamic>,
       );
 
-      return CustomResponse(status: true, data: userPublicModel);
+      return CustomResponse(status: true, data: userPrivateModel);
     } else {
       return CustomResponse(status: false, error: "Not Logged in");
     }
