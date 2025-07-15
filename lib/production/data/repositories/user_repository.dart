@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:bootcamp175/core/network/custom_response.dart';
 import 'package:bootcamp175/core/network/data_state.dart';
 import 'package:bootcamp175/production/data/data_sources/remote/firebase_api.dart';
+import 'package:bootcamp175/production/data/data_sources/remote/firebase_cloud_api.dart';
 import 'package:bootcamp175/production/data/models/user_model.dart';
 import 'package:bootcamp175/production/domain/repo_interfaces/user_interface.dart';
 
@@ -10,6 +11,7 @@ import 'package:bootcamp175/production/domain/repo_interfaces/user_interface.dar
 
 class UserRepository extends UserInterface<UserModel> {
   FbFstoreApi fbFstoreApi = FbFstoreApi();
+  FirebaseCloudApi cloudApi = FirebaseCloudApi();
 
   @override
   Future<DataState> createUser({
@@ -76,6 +78,34 @@ class UserRepository extends UserInterface<UserModel> {
   @override
   Future<DataState> getUserPrivateInfo() async {
     CustomResponse response = await fbFstoreApi.getCurrentUserPrivateInfo();
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> getUserProfilePicture({required String username}) async {
+    CustomResponse response = await cloudApi.getProfilePicture(
+      username: username,
+    );
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> uploadProfilePicture({
+    required String username,
+    required Uint8List image,
+  }) async {
+    CustomResponse response = await cloudApi.uploadProfilePicture(
+      username: username,
+      image: image,
+    );
     if (response.status == true) {
       return DataSuccess(response.data);
     } else {

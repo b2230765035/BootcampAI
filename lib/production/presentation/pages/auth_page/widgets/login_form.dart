@@ -4,7 +4,7 @@ import 'package:bootcamp175/config/variables/doubles/main_doubles.dart';
 import 'package:bootcamp175/config/variables/strings/auth_strings.dart';
 import 'package:bootcamp175/core/extensions/sizes.dart';
 import 'package:bootcamp175/production/data/models/user_model.dart';
-import 'package:bootcamp175/production/presentation/bloc/user_bloc_bloc.dart';
+import 'package:bootcamp175/production/presentation/bloc/user_bloc/user_bloc_bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

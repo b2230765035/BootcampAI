@@ -19,7 +19,6 @@ class MainIcons {
     color: MainColors.secondaryTextColor,
   );
 
-  //ProfileIcon
   static Icon profileIcon1 = const Icon(CommunityMaterialIcons.account_circle);
   static Icon profileIcon2 = Icon(
     CommunityMaterialIcons.account_box,
@@ -30,5 +29,17 @@ class MainIcons {
     CommunityMaterialIcons.account_circle,
     size: IconSizes.iconSizeL,
     color: MainColors.primaryTextColor,
+  );
+  static Icon profileIcon4 = Icon(CommunityMaterialIcons.account_circle);
+
+  static Icon settingsIcon = Icon(
+    CommunityMaterialIcons.cog_outline,
+    color: MainColors.secondaryTextColor,
+  );
+  static Icon mainIcon = Icon(CommunityMaterialIcons.account_group);
+  static Icon questionIcon = Icon(CommunityMaterialIcons.chat_question);
+  static Icon bellIcon = Icon(
+    CommunityMaterialIcons.bell_alert,
+    color: MainColors.accentColor,
   );
 }
