@@ -10,18 +10,28 @@ class UserModel extends UserEntity {
     super.friends,
     super.receivedFriendRequests,
     super.sentFriendRequests,
+    super.searchKeywords,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-    mail: json["mail"],
-    username: json["username"],
-    hasProfilePhoto: json["hasProfilePhoto"],
-    joinedClassrooms: json["joinedClassrooms"],
-    receivedClassroomRequests: json["receivedClassroomRequests"],
-    friends: List<int>.from(json["friends"]),
-    receivedFriendRequests: List<int>.from(json["receivedFriendRequests"]),
-    sentFriendRequests: List<int>.from(json["sentFriendRequests"]),
-  );
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      mail: json["mail"] ?? "",
+      username: json["username"] ?? "",
+      hasProfilePhoto: json["hasProfilePhoto"] ?? false,
+      joinedClassrooms: List<int>.from(json["joinedClassrooms"] ?? []),
+      receivedClassroomRequests: List<Map<String, String>>.from(
+        (json["receivedClassroomRequests"] ?? []).map<Map<String, String>>(
+          (e) => Map<String, String>.from(e),
+        ),
+      ),
+      friends: List<int>.from(json["friends"] ?? []),
+      receivedFriendRequests: List<int>.from(
+        json["receivedFriendRequests"] ?? [],
+      ),
+      sentFriendRequests: List<int>.from(json["sentFriendRequests"] ?? []),
+      searchKeywords: List<String>.from(json["searchKeywords"] ?? []),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'mail': mail,
@@ -32,5 +42,6 @@ class UserModel extends UserEntity {
     'friends': friends,
     'receivedFriendRequests': receivedFriendRequests,
     'sentFriendRequests': sentFriendRequests,
+    'searchKeywords': searchKeywords,
   };
 }

@@ -19,13 +19,13 @@ class _ClassesPageState extends State<ClassesPage> {
   @override
   void initState() {
     // TODO: implement initState
-    //Sınıfları buarada çek
+    BlocProvider.of<ClassroomBloc>(context).add(GetAllJoinedClassroom());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ClassroomBloc, ClassroomState>(
+    return BlocListener<ClassroomBloc, ClassroomState>(
       listener: (BuildContext context, ClassroomState state) {
         BuildContext dialogContext = context;
         switch (state) {
@@ -39,6 +39,10 @@ class _ClassesPageState extends State<ClassesPage> {
             );
             break;
           case CreateClassroomDone():
+            BlocProvider.of<ClassroomBloc>(
+              context,
+            ).add(GetAllJoinedClassroom());
+
             if (dialogContext.mounted) {
               Navigator.of(dialogContext).pop();
             }
@@ -65,81 +69,146 @@ class _ClassesPageState extends State<ClassesPage> {
             break;
         }
       },
-      builder: (context, state) {
-        return Container(
-          color: MainColors.bgColor3,
-          child: Stack(
-            children: [
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  onPressed: () {
-                    //open the invitations popup
-                  },
-                  icon: MainIcons.bellIcon,
-                  color: MainColors.bgColor1,
-                ),
-              ),
-              Positioned(
-                bottom: 10,
-                right: 10,
-                child: TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(
-                      MainColors.accentColor,
-                    ),
-                  ),
-                  onPressed: () async {
-                    TextEditingController form = TextEditingController();
-                    await showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text("Sınıf Oluştur"),
-                          content: TextFormField(
-                            controller: form,
-                            decoration: InputDecoration(labelText: "Sınıf Adı"),
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                if (form.text != "") {
-                                  UserPublicProfileModel user =
-                                      UserPublicProfileModel(
-                                        username: BlocProvider.of<UserBlocBloc>(
-                                          context,
-                                        ).state.data.username,
-                                        hasProfilePhoto:
-                                            BlocProvider.of<UserBlocBloc>(
-                                              context,
-                                            ).state.data.hasProfilePhoto,
-                                      );
-                                  BlocProvider.of<ClassroomBloc>(context).add(
-                                    CreateClassroom(
-                                      user: user,
-                                      roomName: form.text,
-                                    ),
-                                  );
-                                }
+      child: Container(
+        color: MainColors.bgColor3,
+        child: Stack(
+          children: [
+            BlocBuilder<ClassroomBloc, ClassroomState>(
+              builder: (context, state) {
+                if (state is GetAllJoinedClassroomError) {
+                  return Positioned(
+                    top: 20,
+                    left: 10,
+                    child: Text("Kayılı Sınıf Bulunamadı"),
+                  );
+                } else if (state is GetAllJoinedClassroomLoading) {
+                  return Positioned(
+                    top: 20,
+                    left: 10,
+                    child: Text("Sınıflar Yükleniyor"),
+                  );
+                } else if (state is GetAllJoinedClassroomDone) {
+                  return ListView.builder(
+                    itemCount: state.data.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsetsGeometry.all(5),
+                        child: InkWell(
+                          onTap: () {
+                            //Navigate to Classroom using the name
+                            Navigator.of(context).pushReplacementNamed(
+                              "/classroom_main",
+                              arguments: {
+                                "roomName":
+                                    state.data[state.data.length - index - 1],
                               },
-                              child: Text("Oluştur"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Text(
-                    "Sınıfı Oluştur",
-                    style: CustomTextStyles.messageStyle2,
+                            );
+                          },
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              MainIcons.publicRoomIcon,
+                              const SizedBox(width: 20),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    state.data[state.data.length - index - 1],
+                                    style: CustomTextStyles.primaryStyle,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    "Kullanıcı Sayısı: 0/50",
+                                    style: CustomTextStyles.secondaryStyle,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  return Positioned(
+                    top: 20,
+                    left: 10,
+                    child: Text("Başka state"),
+                  );
+                }
+              },
+            ),
+
+            Positioned(
+              top: 10,
+              right: 10,
+              child: IconButton(
+                onPressed: () {
+                  //open the invitations popup
+                },
+                icon: MainIcons.bellIcon,
+                color: MainColors.bgColor1,
+              ),
+            ),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(
+                    MainColors.accentColor,
                   ),
                 ),
+                onPressed: () async {
+                  TextEditingController form = TextEditingController();
+                  await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text("Sınıf Oluştur"),
+                        content: TextFormField(
+                          controller: form,
+                          decoration: InputDecoration(labelText: "Sınıf Adı"),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              if (form.text != "") {
+                                UserPublicProfileModel user =
+                                    UserPublicProfileModel(
+                                      username: BlocProvider.of<UserBlocBloc>(
+                                        context,
+                                      ).state.data.username,
+                                      hasProfilePhoto:
+                                          BlocProvider.of<UserBlocBloc>(
+                                            context,
+                                          ).state.data.hasProfilePhoto,
+                                    );
+                                BlocProvider.of<ClassroomBloc>(context).add(
+                                  CreateClassroom(
+                                    user: user,
+                                    roomName: form.text,
+                                  ),
+                                );
+                              }
+                            },
+                            child: Text("Oluştur"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text(
+                  "Sınıfı Oluştur",
+                  style: CustomTextStyles.messageStyle2,
+                ),
               ),
-            ],
-          ),
-        );
-      },
+            ),
+            //Skeleton loading eklenebilir
+          ],
+        ),
+      ),
     );
   }
 }

@@ -79,17 +79,23 @@ class FbFstoreApi {
     required UserModel user,
     required String uid,
   }) async {
+    final List<String> keywords = generateSearchKeywords(user.username);
+
     //Adding Public Profile to outer doc
     UserPublicProfileModel userPublicProfile = UserPublicProfileModel(
       username: user.username,
+      searchKeywords: keywords,
     );
-    userCollection.doc(uid).set(userPublicProfile.toJson());
+    await userCollection.doc(uid).set(userPublicProfile.toJson());
     //Adding Private informations to inner collection
+    final privateData = user.toJson();
+    privateData['searchKeywords'] = keywords;
+
     await userCollection
         .doc(uid)
         .collection("privateFields")
         .doc(uid)
-        .set(user.toJson());
+        .set(privateData);
   }
 
   ///Function to add an userModel to collection of firestore. Returns true if username already taken, if not returns false.
@@ -220,4 +226,13 @@ class FbFstoreApi {
   }
 
   resetPassword({required String email}) async {}
+}
+
+List<String> generateSearchKeywords(String username) {
+  username = username.toLowerCase();
+  List<String> keywords = [];
+  for (int i = 1; i <= username.length; i++) {
+    keywords.add(username.substring(0, i));
+  }
+  return keywords;
 }

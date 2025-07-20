@@ -8,6 +8,7 @@ class UserPublicWithRoleModel extends UserEntity {
     required this.role,
     super.username,
     super.hasProfilePhoto,
+    super.searchKeywords,
   });
 
   factory UserPublicWithRoleModel.fromJson(Map<String, dynamic> json) =>
@@ -15,11 +16,13 @@ class UserPublicWithRoleModel extends UserEntity {
         username: json["username"],
         hasProfilePhoto: json["hasProfilePhoto"],
         role: json["role"],
+        searchKeywords: List<String>.from(json["searchKeywords"] ?? []),
       );
 
   Map<String, dynamic> toJson() => {
     'username': username,
     'hasProfilePhoto': hasProfilePhoto,
     'role': role,
+    "searchKeywords": searchKeywords,
   };
 }

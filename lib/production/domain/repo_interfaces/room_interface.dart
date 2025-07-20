@@ -25,4 +25,15 @@ abstract class RoomInterface<
   });
   Future<DataState> userSendMessageClassroomRequest({required T3 message});
   Future<DataState> getClassroomMessageStream({required int roomId});
+  Future<DataState> getAllJoinedClassroom();
+  Future<DataState> sendUserJoinRequestToClassroom({
+    required String roomName,
+    required T4 requestOwner,
+    required T4 requestUser,
+  });
+  Future<DataState> getClassroomDataOfUser({
+    required String roomName,
+    required T4 user,
+  });
+  Future<DataState> searchUsers({required String username});
 }

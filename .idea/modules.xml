@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SUDENAZ.iml" filepath="$PROJECT_DIR$/.idea/SUDENAZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bootcamp175.iml" filepath="$PROJECT_DIR$/bootcamp175.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/bootcamp175_android.iml" filepath="$PROJECT_DIR$/android/bootcamp175_android.iml" />
     </modules>
   </component>
 </project>

@@ -75,4 +75,58 @@ class RoomReposityory
       return DataFailed(response.error!);
     }
   }
+
+  @override
+  Future<DataState> getAllJoinedClassroom() async {
+    CustomResponse response = await chatApi.getAllJoinedClassroom();
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> sendUserJoinRequestToClassroom({
+    required String roomName,
+    required UserPublicProfileModel requestOwner,
+    required UserPublicProfileModel requestUser,
+  }) async {
+    CustomResponse response = await chatApi.sendUserJoinRequestToClassroom(
+      roomName: roomName,
+      requestOwner: requestOwner,
+      requestUser: requestUser,
+    );
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> getClassroomDataOfUser({
+    required String roomName,
+    required UserPublicProfileModel user,
+  }) async {
+    CustomResponse response = await chatApi.getClassroomDataOfUser(
+      roomName: roomName,
+      user: user,
+    );
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> searchUsers({required String username}) async {
+    CustomResponse response = await chatApi.searchUsers(username: username);
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
 }

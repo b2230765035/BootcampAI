@@ -42,4 +42,9 @@ class MainIcons {
     CommunityMaterialIcons.bell_alert,
     color: MainColors.accentColor,
   );
+  static Icon publicRoomIcon = Icon(
+    Icons.question_mark,
+    color: Colors.green,
+    size: IconSizes.iconSizeXS,
+  );
 }

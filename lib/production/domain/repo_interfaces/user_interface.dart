@@ -9,6 +9,7 @@ abstract class UserInterface<T extends UserEntity> {
   Future<DataState> logoutRequest();
   Future<DataState> getCurrentUser();
   Future<DataState> getUser({required String username});
+
   Future<DataState> getUserPrivateInfo();
   Future<DataState> getUserProfilePicture({required String username});
   Future<DataState> uploadProfilePicture({

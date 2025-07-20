@@ -9,6 +9,7 @@ class UserEntity extends Equatable {
   final List<int> friends;
   final List<int> receivedFriendRequests;
   final List<int> sentFriendRequests;
+  final List<String> searchKeywords;
 
   const UserEntity({
     this.mail = "",
@@ -19,6 +20,7 @@ class UserEntity extends Equatable {
     this.friends = const <int>[],
     this.receivedFriendRequests = const <int>[],
     this.sentFriendRequests = const <int>[],
+    this.searchKeywords = const <String>[],
   });
 
   @override

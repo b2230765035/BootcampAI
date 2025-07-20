@@ -8,7 +8,20 @@ abstract class ClassroomState {
 
 final class ClassroomInitial extends ClassroomState {}
 
-//For Creating Room
+//For Getting Joined Classrooms
+class GetAllJoinedClassroomLoading extends ClassroomState {
+  const GetAllJoinedClassroomLoading();
+}
+
+class GetAllJoinedClassroomDone extends ClassroomState {
+  const GetAllJoinedClassroomDone({required super.data});
+}
+
+class GetAllJoinedClassroomError extends ClassroomState {
+  const GetAllJoinedClassroomError({required super.error});
+}
+
+//For Creating Classroom
 class CreateClassroomLoading extends ClassroomState {
   const CreateClassroomLoading();
 }
@@ -19,4 +32,43 @@ class CreateClassroomDone extends ClassroomState {
 
 class CreateClassroomError extends ClassroomState {
   const CreateClassroomError({required super.error});
+}
+
+//For Getting Classroom Data Of Specific User
+class GetClassroomDataOfUserLoading extends ClassroomState {
+  const GetClassroomDataOfUserLoading();
+}
+
+class GetClassroomDataOfUserDone extends ClassroomState {
+  const GetClassroomDataOfUserDone({required super.data});
+}
+
+class GetClassroomDataOfUserError extends ClassroomState {
+  const GetClassroomDataOfUserError({required super.error});
+}
+
+//For Searching Users
+class SearchUsersLoading extends ClassroomState {
+  const SearchUsersLoading({required super.data});
+}
+
+class SearchUsersDone extends ClassroomState {
+  const SearchUsersDone({required super.data});
+}
+
+class SearchUsersError extends ClassroomState {
+  const SearchUsersError({required super.data, required super.error});
+}
+
+//For Sending Classroom Invitation
+class SendInvitationLoading extends ClassroomState {
+  const SendInvitationLoading({required super.data});
+}
+
+class SendInvitationDone extends ClassroomState {
+  const SendInvitationDone({required super.data});
+}
+
+class SendInvitationError extends ClassroomState {
+  const SendInvitationError({required super.data, required super.error});
 }

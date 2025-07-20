@@ -213,29 +213,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-/*
-BlocListener<UserBlocBloc, UserBlocState>(
-        listener: (context, state) {
-          if (state is UserBlocLogout) {
-            Navigator.of(
-              context,
-            ).pushNamedAndRemoveUntil("/auth", (Route<dynamic> route) => false);
-          }
-        },
-        child: Center(
-          child: Container(
-            child: TextButton(
-              onPressed: () {
-                BlocProvider.of<UserBlocBloc>(
-                  context,
-                ).add(const LogoutRequest());
-              },
-              child: Text("Çıkış Yap"),
-            ),
-          ),
-        ),
-      ),
-
- */

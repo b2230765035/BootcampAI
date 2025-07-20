@@ -1,7 +1,9 @@
 import 'package:bootcamp175/production/presentation/bloc/classroom_bloc/classroom_bloc.dart';
 import 'package:bootcamp175/production/presentation/bloc/user_bloc/user_bloc_bloc.dart';
 import 'package:bootcamp175/production/presentation/pages/auth_page/auth_page.dart';
+import 'package:bootcamp175/production/presentation/pages/classroom_page/classroom_page.dart';
 import 'package:bootcamp175/production/presentation/pages/main_page/main_page.dart';
+import 'package:bootcamp175/production/presentation/pages/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,20 +20,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<UserBlocBloc>(create: (context) => UserBlocBloc()),
-        BlocProvider<ClassroomBloc>(create: (context) => ClassroomBloc()),
-      ],
-      child: MaterialApp(
-        initialRoute: "/auth",
-        routes: {
-          "/auth": (context) => const AuthPage(),
-          "/main": (context) => const MainPage(),
-        },
-        debugShowCheckedModeBanner: false,
-        title: 'BootCamp175',
+    return MaterialApp(
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider<UserBlocBloc>(create: (context) => UserBlocBloc()),
+          BlocProvider<ClassroomBloc>(create: (context) => ClassroomBloc()),
+        ],
+        child: child!,
       ),
+      initialRoute: "/auth",
+      onGenerateRoute: (RouteSettings settings) {
+        if (settings.name == '/auth') {
+          return MaterialPageRoute(builder: (context) => const AuthPage());
+        } else if (settings.name == '/main') {
+          return MaterialPageRoute(builder: (context) => const MainPage());
+        } else if (settings.name == "/settings") {
+          return MaterialPageRoute(builder: (context) => const SettingsPage());
+        } else if (settings.name == '/classroom_main') {
+          final args = settings.arguments as Map<String, dynamic>;
+          final roomName = args['roomName'];
+          return MaterialPageRoute(
+            builder: (context) => ClassroomPage(roomName: roomName),
+          );
+        }
+        return null; // Add default case or return null
+      },
+      debugShowCheckedModeBanner: false,
+      title: 'BootCamp175',
     );
   }
 }
