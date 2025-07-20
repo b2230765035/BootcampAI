@@ -245,6 +245,15 @@ Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrenci
 ## Ekran Görüntüleri
 
 ![Ekran Görüntüsü](sprintImages/sprint2/1.png)
+
 ![Ekran Görüntüsü](sprintImages/sprint2/2.png)
+
 ![Ekran Görüntüsü](sprintImages/sprint2/3.png)
+
 ![Ekran Görüntüsü](sprintImages/sprint2/4.png)
+
+## Sprint Görüntüleri
+
+![Ekran Görüntüsü](sprintImages/sprint2/5.JPG)
+
+![Ekran Görüntüsü](sprintImages/sprint2/6.JPG)
