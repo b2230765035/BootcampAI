@@ -42,6 +42,10 @@ class MainIcons {
     CommunityMaterialIcons.bell_alert,
     color: MainColors.accentColor,
   );
+  static Icon bellIconNoNotification = Icon(
+    CommunityMaterialIcons.bell_check,
+    color: Colors.green,
+  );
   static Icon publicRoomIcon = Icon(
     Icons.question_mark,
     color: Colors.green,

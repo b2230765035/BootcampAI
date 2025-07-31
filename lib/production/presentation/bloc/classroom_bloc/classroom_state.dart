@@ -72,3 +72,31 @@ class SendInvitationDone extends ClassroomState {
 class SendInvitationError extends ClassroomState {
   const SendInvitationError({required super.data, required super.error});
 }
+
+//Acceptin User Invitation
+class UserActionClassroomInviteLoading extends ClassroomState {
+  const UserActionClassroomInviteLoading({required super.data});
+}
+
+class UserActionClassroomInviteDone extends ClassroomState {
+  const UserActionClassroomInviteDone({required super.data});
+}
+
+class UserActionClassroomInviteError extends ClassroomState {
+  const UserActionClassroomInviteError({
+    required super.data,
+    required super.error,
+  });
+}
+
+class UploadPDFLoading extends ClassroomState {
+  const UploadPDFLoading({required super.data});
+}
+
+class UploadPDFDone extends ClassroomState {
+  const UploadPDFDone({required super.data});
+}
+
+class UploadPDFError extends ClassroomState {
+  const UploadPDFError({required super.data, required super.error});
+}

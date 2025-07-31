@@ -18,7 +18,7 @@ class UserModel extends UserEntity {
       mail: json["mail"] ?? "",
       username: json["username"] ?? "",
       hasProfilePhoto: json["hasProfilePhoto"] ?? false,
-      joinedClassrooms: List<int>.from(json["joinedClassrooms"] ?? []),
+      joinedClassrooms: List<String>.from(json["joinedClassrooms"] ?? []),
       receivedClassroomRequests: List<Map<String, String>>.from(
         (json["receivedClassroomRequests"] ?? []).map<Map<String, String>>(
           (e) => Map<String, String>.from(e),

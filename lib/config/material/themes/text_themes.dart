@@ -58,6 +58,21 @@ class CustomTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
+  static final secondaryStyleOrange = GoogleFonts.montserratAlternates(
+    color: MainColors.accentColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+  static final secondaryStyleGreen = GoogleFonts.montserratAlternates(
+    color: Colors.green,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+  static final secondaryStyleRed = GoogleFonts.montserratAlternates(
+    color: Colors.red,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
   static final secondaryHeaderStyle = GoogleFonts.play(
     color: MainColors.secondaryTextColor,
     fontSize: 18,

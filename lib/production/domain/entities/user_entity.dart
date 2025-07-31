@@ -4,7 +4,7 @@ class UserEntity extends Equatable {
   final String mail;
   final String username;
   final bool hasProfilePhoto;
-  final List<int> joinedClassrooms;
+  final List<String> joinedClassrooms;
   final List<Map<String, String>> receivedClassroomRequests;
   final List<int> friends;
   final List<int> receivedFriendRequests;
@@ -15,7 +15,7 @@ class UserEntity extends Equatable {
     this.mail = "",
     this.username = "",
     this.hasProfilePhoto = false,
-    this.joinedClassrooms = const <int>[],
+    this.joinedClassrooms = const <String>[],
     this.receivedClassroomRequests = const <Map<String, String>>[],
     this.friends = const <int>[],
     this.receivedFriendRequests = const <int>[],

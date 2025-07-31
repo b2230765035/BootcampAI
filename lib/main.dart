@@ -3,6 +3,7 @@ import 'package:bootcamp175/production/presentation/bloc/user_bloc/user_bloc_blo
 import 'package:bootcamp175/production/presentation/pages/auth_page/auth_page.dart';
 import 'package:bootcamp175/production/presentation/pages/classroom_page/classroom_page.dart';
 import 'package:bootcamp175/production/presentation/pages/main_page/main_page.dart';
+import 'package:bootcamp175/production/presentation/pages/notes_and_homeworks_page/notes_and_homeworks_page.dart';
 import 'package:bootcamp175/production/presentation/pages/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -41,6 +42,10 @@ class MyApp extends StatelessWidget {
           final roomName = args['roomName'];
           return MaterialPageRoute(
             builder: (context) => ClassroomPage(roomName: roomName),
+          );
+        } else if (settings.name == '/notes_and_homeworks') {
+          return MaterialPageRoute(
+            builder: (context) => const NotesAndHomeworksPage(),
           );
         }
         return null; // Add default case or return null

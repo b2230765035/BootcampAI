@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bootcamp175/core/network/custom_response.dart';
 import 'package:bootcamp175/core/network/data_state.dart';
 import 'package:bootcamp175/production/data/data_sources/remote/firestore_chat_api.dart';
@@ -16,47 +18,10 @@ class RoomReposityory
           UserPublicProfileModel
         > {
   FirestoreChatApi chatApi = FirestoreChatApi();
-  @override
-  Future<DataState> getAllClasses() {
-    // TODO: implement getAllClasses
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<DataState> getClass({required int roomId}) {
-    // TODO: implement getClass
-    throw UnimplementedError();
-  }
 
   @override
   Future<DataState> getClassroomMessageStream({required int roomId}) {
     // TODO: implement getClassroomMessageStream
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<DataState> userJoinClassroomRequest({
-    required int roomId,
-    required UserPublicWithRoleModel user,
-  }) {
-    // TODO: implement userJoinClassroomRequest
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<DataState> userLeaveClassroomRequest({
-    required int roomId,
-    required UserPublicWithRoleModel user,
-  }) {
-    // TODO: implement userLeaveClassroomRequest
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<DataState> userSendMessageClassroomRequest({
-    required MessageModel message,
-  }) {
-    // TODO: implement userSendMessageClassroomRequest
     throw UnimplementedError();
   }
 
@@ -123,6 +88,66 @@ class RoomReposityory
   @override
   Future<DataState> searchUsers({required String username}) async {
     CustomResponse response = await chatApi.searchUsers(username: username);
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> userAcceptClassroomInvite({
+    required String roomName,
+    required String username,
+    required String requestOwnerUsername,
+  }) async {
+    CustomResponse response = await chatApi.userAcceptClassroomInvite(
+      roomName: roomName,
+      username: username,
+      requestOwnerUsername: requestOwnerUsername,
+    );
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> userRejectClassroomInvite({
+    required String roomName,
+    required String username,
+    required String requestOwnerUsername,
+  }) async {
+    CustomResponse response = await chatApi.userRejectClassroomInvite(
+      roomName: roomName,
+      username: username,
+      requestOwnerUsername: requestOwnerUsername,
+    );
+    if (response.status == true) {
+      return DataSuccess(response.data);
+    } else {
+      return DataFailed(response.error!);
+    }
+  }
+
+  @override
+  Future<DataState> uploadPDF({
+    required String fileName,
+    required File file,
+    required String objectiveName,
+    required String roomName,
+    required String pdfType,
+    required String uploadOwner,
+  }) async {
+    CustomResponse response = await chatApi.uploadPDF(
+      fileName: fileName,
+      file: file,
+      objectiveName: objectiveName,
+      roomName: roomName,
+      pdfType: pdfType,
+      uploadOwner: uploadOwner,
+    );
     if (response.status == true) {
       return DataSuccess(response.data);
     } else {

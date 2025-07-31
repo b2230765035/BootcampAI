@@ -40,6 +40,16 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDirs("libs", "src/main/jniLibs")
+        }
+    }
+}
+
+dependencies {
+    implementation("camp.visual.eyedid.android.gazetracker:eyedid-gazetracker:{version}")
 }
 
 flutter {

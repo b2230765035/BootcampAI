@@ -7,6 +7,7 @@ class MainColors {
   static Color primaryTextColor = const Color(0xFFFFFFFF);
   static Color secondaryTextColor = const Color(0xFF6A6B81);
   static Color accentColor = const Color(0xFFD07046);
+  static Color accentColor2 = const Color(0xC0D07046);
 }
 
 class SideColors {

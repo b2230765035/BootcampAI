@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bootcamp175/core/network/custom_response.dart';
 import 'package:bootcamp175/production/data/models/message_model.dart';
 import 'package:bootcamp175/production/data/models/room_model.dart';
@@ -6,6 +8,7 @@ import 'package:bootcamp175/production/data/models/user_public_profile_model.dar
 import 'package:bootcamp175/production/data/models/user_public_with_role.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class FirestoreChatApi {
   FirebaseAuth firebaseAuthInstance = FirebaseAuth.instance;
@@ -95,7 +98,11 @@ class FirestoreChatApi {
           roomName: roomName,
           currentUsers: [roomAdmin],
           pendingUsers: [],
+          rejectedUsers: [],
+          homeworks: [],
+          notes: [],
         );
+
         await roomCollection.doc().set(newRoom.toJson());
         DocumentSnapshot userDoc = await userCollection
             .doc(firebaseAuthInstance.currentUser!.uid)
@@ -141,42 +148,281 @@ class FirestoreChatApi {
         .collection("privateFields")
         .doc(firebaseAuthInstance.currentUser!.uid)
         .get();
-    Map<String, dynamic> data = userPrivateData.data() as Map<String, dynamic>;
-    List<dynamic> joinedClassrooms = data['joinedClassrooms'];
+    UserModel data = UserModel.fromJson(
+      userPrivateData.data() as Map<String, dynamic>,
+    );
+    List<dynamic> joinedClassrooms = data.joinedClassrooms;
     if (joinedClassrooms.isNotEmpty) {
-      return CustomResponse(status: true, data: joinedClassrooms);
+      return CustomResponse(
+        status: true,
+        data: {"joinedClassrooms": joinedClassrooms, "userData": data},
+      );
     } else {
       return CustomResponse(
-        status: false,
-        error: "User didnt join any classrooms",
+        status: true,
+        data: {"joinedClassrooms": [], "userData": data},
       );
     }
   }
 
-  //modify this function !!
-  Future<CustomResponse> addUserToClassRoom({
+  Future<CustomResponse> userAcceptClassroomInvite({
     required String roomName,
-    required UserPublicProfileModel userProfile,
+    required String username,
+    required String requestOwnerUsername,
   }) async {
-    QuerySnapshot room = await roomCollection
-        .where("roomName", isEqualTo: roomName)
+    if (!await isLoggedIn()) {
+      return CustomResponse(status: false, error: "Not Logged in");
+    }
+
+    // Kullanıcıyı bul
+    QuerySnapshot userQuery = await userCollection
+        .where("username", isEqualTo: username)
+        .limit(1)
         .get();
-    QueryDocumentSnapshot roomDoc = room.docs[0];
-    if (room.docs.isEmpty) {
+
+    if (userQuery.docs.isEmpty) {
+      return CustomResponse(status: false, error: "User not found");
+    }
+
+    DocumentSnapshot userDoc = userQuery.docs.first;
+    String userId = userDoc.id;
+
+    // Kullanıcının private datası
+    DocumentSnapshot userPrivateDoc = await userCollection
+        .doc(userId)
+        .collection("privateFields")
+        .doc(userId)
+        .get();
+
+    if (!userPrivateDoc.exists) {
       return CustomResponse(
         status: false,
-        error: "No public room found with that name",
+        error: "User private data not found",
       );
     }
-    UserPublicWithRoleModel roomUserProfile = UserPublicWithRoleModel(
-      role: "Student",
-      username: userProfile.username,
-      hasProfilePhoto: userProfile.hasProfilePhoto,
+
+    UserModel userPrivateModel = UserModel.fromJson(
+      userPrivateDoc.data() as Map<String, dynamic>,
     );
-    roomCollection.doc(roomDoc.id).update({
-      "currentUsers": FieldValue.arrayUnion([roomUserProfile.toJson()]),
-    });
-    return await getClassroom(roomName: roomName);
+
+    // Step 1: receivedClassroomRequests içinde status'u "accepted" yap
+    List<dynamic> updatedReceivedRequests = List.from(
+      userPrivateModel.receivedClassroomRequests,
+    );
+
+    for (var request in updatedReceivedRequests) {
+      if (request["roomName"] == roomName &&
+          request["status"] == "pending" &&
+          request["requestOwner"] == requestOwnerUsername) {
+        request["status"] = "accepted";
+        break;
+      }
+    }
+
+    // Step 2: joinedClassrooms'a roomId ekle
+    // Şimdi room'u bulalım
+    QuerySnapshot roomQuery = await roomCollection
+        .where("roomName", isEqualTo: roomName)
+        .limit(1)
+        .get();
+
+    if (roomQuery.docs.isEmpty) {
+      return CustomResponse(status: false, error: "Room not found");
+    }
+
+    DocumentSnapshot roomDoc = roomQuery.docs.first;
+    String roomId = roomDoc.id;
+
+    // Kullanıcı güncelle
+    await userCollection
+        .doc(userId)
+        .collection("privateFields")
+        .doc(userId)
+        .update({
+          "receivedClassroomRequests": updatedReceivedRequests,
+          "joinedClassrooms": FieldValue.arrayUnion([roomName]),
+        });
+
+    // Room verisini al
+    Map<String, dynamic> roomData = roomDoc.data() as Map<String, dynamic>;
+
+    // Step 3: pendingUsers listesinden kullanıcıyı çıkar
+    List<Map<String, dynamic>> pendingUsers = List<Map<String, dynamic>>.from(
+      roomData["pendingUsers"] ?? [],
+    );
+    List<Map<String, dynamic>> currentUsers = List<Map<String, dynamic>>.from(
+      roomData["currentUsers"] ?? [],
+    );
+
+    // İlgili pending request'i bul
+    Map<String, String>? targetRequest;
+
+    for (var request in pendingUsers) {
+      if (request["roomName"] == roomName &&
+          request["invitedUser"] == username &&
+          request["status"] == "pending" &&
+          request["requestOwner"] == requestOwnerUsername) {
+        targetRequest = Map<String, String>.from(request);
+        break;
+      }
+    }
+
+    if (targetRequest != null) {
+      // PendingUsers'tan sil
+      pendingUsers.removeWhere(
+        (request) =>
+            request["roomName"] == roomName &&
+            request["invitedUser"] == username &&
+            request["status"] == "pending" &&
+            request["requestOwner"] == requestOwnerUsername,
+      );
+      Map<String, dynamic> addedUser =
+          userQuery.docs[0].data() as Map<String, dynamic>;
+      addedUser.addAll({"role": "Student"});
+      // currentUsers'a ekle
+      currentUsers.add(addedUser);
+
+      // Güncelleme yap
+      await roomCollection.doc(roomId).update({
+        "pendingUsers": pendingUsers,
+        "currentUsers": currentUsers,
+      });
+
+      return CustomResponse(status: true, data: "Join request accepted");
+    } else {
+      return CustomResponse(status: false, error: "Pending request not found");
+    }
+  }
+
+  Future<CustomResponse> userRejectClassroomInvite({
+    required String roomName,
+    required String username,
+    required String requestOwnerUsername,
+  }) async {
+    if (!await isLoggedIn()) {
+      return CustomResponse(status: false, error: "Not Logged in");
+    }
+
+    // Kullanıcıyı bul
+    QuerySnapshot userQuery = await userCollection
+        .where("username", isEqualTo: username)
+        .limit(1)
+        .get();
+
+    if (userQuery.docs.isEmpty) {
+      return CustomResponse(status: false, error: "User not found");
+    }
+
+    DocumentSnapshot userDoc = userQuery.docs.first;
+    String userId = userDoc.id;
+
+    // Kullanıcının private datası
+    DocumentSnapshot userPrivateDoc = await userCollection
+        .doc(userId)
+        .collection("privateFields")
+        .doc(userId)
+        .get();
+
+    if (!userPrivateDoc.exists) {
+      return CustomResponse(
+        status: false,
+        error: "User private data not found",
+      );
+    }
+
+    UserModel userPrivateModel = UserModel.fromJson(
+      userPrivateDoc.data() as Map<String, dynamic>,
+    );
+
+    // Step 1: receivedClassroomRequests içinde status'u "accepted" yap
+    List<dynamic> updatedReceivedRequests = List.from(
+      userPrivateModel.receivedClassroomRequests,
+    );
+
+    for (var request in updatedReceivedRequests) {
+      if (request["roomName"] == roomName &&
+          request["status"] == "pending" &&
+          request["requestOwner"] == requestOwnerUsername) {
+        request["status"] = "rejected";
+        break;
+      }
+    }
+
+    // Step 2: joinedClassrooms'a roomId ekle
+    // Şimdi room'u bulalım
+    QuerySnapshot roomQuery = await roomCollection
+        .where("roomName", isEqualTo: roomName)
+        .limit(1)
+        .get();
+
+    if (roomQuery.docs.isEmpty) {
+      return CustomResponse(status: false, error: "Room not found");
+    }
+
+    DocumentSnapshot roomDoc = roomQuery.docs.first;
+    String roomId = roomDoc.id;
+
+    // Kullanıcı güncelle
+    await userCollection
+        .doc(userId)
+        .collection("privateFields")
+        .doc(userId)
+        .update({"receivedClassroomRequests": updatedReceivedRequests});
+
+    // Room verisini al
+    Map<String, dynamic> roomData = roomDoc.data() as Map<String, dynamic>;
+
+    // Step 3: pendingUsers listesinden kullanıcıyı çıkar
+    List<Map<String, dynamic>> pendingUsers = List<Map<String, dynamic>>.from(
+      roomData["pendingUsers"] ?? [],
+    );
+    List<Map<String, dynamic>> rejectedUsers = List<Map<String, dynamic>>.from(
+      roomData["rejectedUsers"] ?? [],
+    );
+
+    // İlgili pending request'i bul
+    Map<String, String>? targetRequest;
+
+    for (var request in pendingUsers) {
+      if (request["roomName"] == roomName &&
+          request["invitedUser"] == username &&
+          request["status"] == "pending" &&
+          request["requestOwner"] == requestOwnerUsername) {
+        targetRequest = Map<String, String>.from(request);
+        break;
+      }
+    }
+
+    if (targetRequest != null) {
+      // PendingUsers'tan sil
+      pendingUsers.removeWhere(
+        (request) =>
+            request["roomName"] == roomName &&
+            request["invitedUser"] == username &&
+            request["status"] == "pending" &&
+            request["requestOwner"] == requestOwnerUsername,
+      );
+      Map<String, dynamic> rejectedUser =
+          userQuery.docs[0].data() as Map<String, dynamic>;
+      rejectedUser.addAll({
+        "requestOwner": requestOwnerUsername,
+        "status": "rejected",
+      });
+      rejectedUser.remove("searchKeywords");
+
+      // currentUsers'a ekle
+      rejectedUsers.add(rejectedUser);
+
+      // Güncelleme yap
+      await roomCollection.doc(roomId).update({
+        "pendingUsers": pendingUsers,
+        "rejectedUsers": rejectedUsers,
+      });
+
+      return CustomResponse(status: true, data: "Reject request accepted");
+    } else {
+      return CustomResponse(status: false, error: "Pending request not found");
+    }
   }
 
   Future<CustomResponse> getClassroom({required String roomName}) async {
@@ -195,6 +441,7 @@ class FirestoreChatApi {
     RoomModel roomModel = RoomModel.fromJson(
       roomDoc.data() as Map<String, dynamic>,
     );
+
     return CustomResponse(status: true, data: roomModel);
   }
 
@@ -313,6 +560,38 @@ class FirestoreChatApi {
     }
   }
 
+  Future<CustomResponse> getClassroomDataOfUserWithUsername({
+    required String roomName,
+    required String username,
+  }) async {
+    CustomResponse classroomData = await getClassroom(roomName: roomName);
+    if (classroomData.status == false) {
+      return CustomResponse(
+        status: false,
+        error: "No classroom found with given name",
+      );
+    } else {
+      List<UserPublicWithRoleModel> userListwithRoles =
+          classroomData.data.currentUsers;
+      late UserPublicWithRoleModel foundUser;
+      bool doesUserExist = false;
+      for (UserPublicWithRoleModel userData in userListwithRoles) {
+        if (userData.username == username) {
+          doesUserExist = true;
+          foundUser = userData;
+        }
+      }
+      if (!doesUserExist) {
+        return CustomResponse(status: false, error: "Couldn't find the user");
+      } else {
+        return CustomResponse(
+          status: true,
+          data: {"foundUser": foundUser, "roomData": classroomData.data},
+        );
+      }
+    }
+  }
+
   Future<CustomResponse> searchUsers({required String username}) async {
     if (await isLoggedIn()) {
       QuerySnapshot response = await userCollection
@@ -334,4 +613,87 @@ class FirestoreChatApi {
       return CustomResponse(status: false, error: "Not Logged in");
     }
   }
+
+  Future<CustomResponse> uploadPDF({
+    required String fileName,
+    required File file,
+    required String objectiveName,
+    required String roomName,
+    required String pdfType,
+    required String uploadOwner,
+  }) async {
+    try {
+      late Reference storageRef;
+      String safeRoomName = sanitize(roomName);
+      String safeFileName = sanitize(fileName);
+
+      if (pdfType == "homework") {
+        storageRef = FirebaseStorage.instance.ref().child(
+          "classrooms/$safeRoomName/homeworks/$safeFileName",
+        );
+      } else if (pdfType == "note") {
+        storageRef = FirebaseStorage.instance.ref().child(
+          "classrooms/$safeRoomName/notes/$safeFileName",
+        );
+      }
+      final uploadTask = await storageRef.putFile(file);
+
+      final downloadUrl = await uploadTask.ref.getDownloadURL();
+
+      QuerySnapshot room = await roomCollection
+          .where("roomName", isEqualTo: roomName)
+          .limit(1)
+          .get();
+      if (room.docs.isEmpty) {
+        return CustomResponse(
+          status: false,
+          error: "No  classroom found with that name",
+        );
+      }
+      QueryDocumentSnapshot roomDoc = room.docs[0];
+
+      Map<String, dynamic> roomData = roomDoc.data() as Map<String, dynamic>;
+      if (pdfType == "homework") {
+        List<Map<String, dynamic>> homeworks = List<Map<String, dynamic>>.from(
+          roomData["homeworks"] ?? [],
+        );
+        homeworks.add({
+          "homeworkName": objectiveName,
+          "fileName": fileName,
+          "fileUrl": downloadUrl,
+          "uploadOwner": uploadOwner,
+          "roomName": roomName,
+          "uploadedAt": Timestamp.now(),
+        });
+        await roomCollection.doc(roomDoc.id).update({"homeworks": homeworks});
+        return await getClassroomDataOfUserWithUsername(
+          roomName: roomName,
+          username: uploadOwner,
+        );
+      } else {
+        List<Map<String, dynamic>> notes = List<Map<String, dynamic>>.from(
+          roomData["notes"] ?? [],
+        );
+        notes.add({
+          "noteName": objectiveName,
+          "fileName": fileName,
+          "fileUrl": downloadUrl,
+          "uploadOwner": uploadOwner,
+          "roomName": roomName,
+          "uploadedAt": Timestamp.now(),
+        });
+        await roomCollection.doc(roomDoc.id).update({"notes": notes});
+        return CustomResponse(status: true, data: "Uploaded File Succesfully");
+      }
+    } catch (e) {
+      return CustomResponse(
+        status: false,
+        error: "Something went wrong while uploading pdf ",
+      );
+    }
+  }
+}
+
+String sanitize(String input) {
+  return input.replaceAll(RegExp(r'[\/\\#\?\%\*\:\[\]]'), '-');
 }
