@@ -7,7 +7,7 @@
 ## 👥 Takım & Ürün İsmi
 
 **Takım Adı:** Bootcamp Grup 175  
-**Ürün Adı:** Etüt (İsim henüz belirlenmedi)
+**Ürün Adı:** Etüt 
 
 ---
 
