@@ -7,7 +7,7 @@
 ## 👥 Takım & Ürün İsmi
 
 **Takım Adı:** Bootcamp Grup 175  
-**Ürün Adı:** Etüt 
+**Ürün Adı:** Etüt
 
 ---
 
@@ -92,7 +92,7 @@ Amacımız, öğrencilerin sürdürülebilir bir öğrenme disiplini geliştirme
 
 ## 🎯 Hedef Kitle
 
-Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrencileridir**. Teknolojiyi aktif kullanan, verimli çalışma alışkanlıkları kazanmak isteyen ve bireysel gelişimine önem veren genç bireyler bu uygulamadan doğrudan fayda sağlar.
+Etüt'ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrencileridir**. Teknolojiyi aktif kullanan, verimli çalışma alışkanlıkları kazanmak isteyen ve bireysel gelişimine önem veren genç bireyler bu uygulamadan doğrudan fayda sağlar.
 
 ### 💡 Öne Çıkan Kitleler:
 
@@ -159,7 +159,7 @@ Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrenci
 
 ## ✅ Highlights
 
-- Kullanıcı modelleri ve use-case’leri belirlendi.
+- Kullanıcı modelleri ve use-case'leri belirlendi.
 - Sınıfların mimarisi tasarlandı ve mevcut yapıya göre güncellendi.
 - Profil resmi sistemi için altyapı oluşturuldu; **Firebase Storage** kullanımına karar verildi.
 - Öğretmenler için sınıf oluşturma özelliği geliştirildi.
@@ -191,7 +191,7 @@ Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrenci
 
 | İş Kalemi                                          | Durum             | Puan (Tamamlanan) | Toplam Puan |
 | -------------------------------------------------- | ----------------- | ----------------- | ----------- |
-| Kullanıcı modelleri ve use-case’lerin belirlenmesi | ✅ Tamamlandı     | **15**            | 15          |
+| Kullanıcı modelleri ve use-case'lerin belirlenmesi | ✅ Tamamlandı     | **15**            | 15          |
 | Sınıf mimarisinin tasarlanması ve güncellenmesi    | ✅ Tamamlandı     | **15**            | 15          |
 | Profil resmi altyapısı (Firebase Storage)          | ✅ Tamamlandı     | **10**            | 10          |
 | Öğretmen sınıf oluşturma özelliği                  | ✅ Tamamlandı     | **10**            | 10          |
@@ -257,3 +257,158 @@ Etüt’ün hedef kitlesi, özellikle **Z Kuşağı** ve **üniversite öğrenci
 ![Ekran Görüntüsü](sprintImages/sprint2/5.JPG)
 
 ![Ekran Görüntüsü](sprintImages/sprint2/6.JPG)
+
+## Sprint 3 Notları
+
+- Sprint Tarihleri: (20 Temmuz 2025 – 3 Ağustos 2025)
+
+## ✅ Highlights
+
+- **Ödev/Not Yükleme Sistemi**: PDF dosyalarının yüklenmesi ve yönetimi için tam fonksiyonel sistem geliştirildi.
+- **Yapay Zeka ile Eye Tracking**: Kullanıcıların göz hareketlerini takip eden AI destekli sistem entegre edildi.
+- **PDF Viewer Entegrasyonu**: PDF dosyalarının görüntülenmesi için Syncfusion PDF Viewer entegre edildi.
+- **Kullanıcı Takılma Noktası Tespiti**: Kullanıcıların en çok hangi bölümlerde takıldığının analizi gerçekleştirildi.
+- **DataTable Layout**: Ödevler sayfası için DataTable tabanlı layout kullanıldı.
+- **Dialog Widget İyileştirmeleri**: PDF görüntüleme ve etüt takibi için gelişmiş dialog widget'ları.
+
+---
+
+## 🔧 Fonksiyonel Özellikler
+
+### Ödev/Not Yükleme Sistemi
+
+- PDF dosya yükleme ve yönetimi
+- Dosya seçimi ve validasyon
+- Firebase Storage entegrasyonu
+- Ödev ismi ve açıklama ekleme
+- Yüklenen dosyaların listelenmesi
+
+### Yapay Zeka ile Eye Tracking
+
+- Gerçek zamanlı göz hareketi takibi
+- Odaklanma süresi ölçümü
+- Ekran dışı süre tespiti
+- Performans analizi ve raporlama
+- Kalibrasyon sistemi
+
+### PDF Viewer Entegrasyonu
+
+- Syncfusion PDF Viewer implementasyonu
+- Yatay kaydırma desteği
+- Sayfa navigasyonu
+- Zoom ve pan özellikleri
+- PDF içeriği analizi
+
+### Kullanıcı Takılma Noktası Tespiti
+
+- Sayfa segmentasyonu (4 bölüm)
+- Her segment için ayrı takip
+- Takılma süresi analizi
+- AI destekli içerik analizi
+- Otomatik özet oluşturma
+
+### DataTable Layout
+
+- Ödevler için DataTable kullanımı
+- Sütun bazlı düzenleme
+- Arama ve filtreleme
+- Responsive tablo tasarımı
+- Aksiyon butonları entegrasyonu
+
+### Dialog Widget İyileştirmeleri
+
+- PDF görüntüleme dialog'u
+- Etüt takip arayüzü
+- Gerçek zamanlı metrikler
+- Segment durumu göstergeleri
+- Kontrol butonları
+
+---
+
+## 📊 Sprint Point Completion Breakdown
+
+| İş Kalemi                         | Durum         | Puan (Tamamlanan) | Toplam Puan |
+| --------------------------------- | ------------- | ----------------- | ----------- |
+| Ödev/Not Yükleme Sistemi          | ✅ Tamamlandı | **25**            | 25          |
+| Yapay Zeka ile Eye Tracking       | ✅ Tamamlandı | **30**            | 30          |
+| PDF Viewer Entegrasyonu           | ✅ Tamamlandı | **15**            | 15          |
+| Kullanıcı Takılma Noktası Tespiti | ✅ Tamamlandı | **20**            | 20          |
+| DataTable Layout                  | ✅ Tamamlandı | **10**            | 10          |
+| Dialog Widget İyileştirmeleri     | ✅ Tamamlandı | **10**            | 10          |
+
+- ✅ **Toplam Tamamlanan Puan**: **110**
+- ⚠️ **Kısmen Yapılan Puan**: **0**
+- ❌ **Tamamlanamayan Puan**: **0**
+
+---
+
+## 📈 Sprint Başarı Oranı
+
+\[
+\text{Gerçekleşen Puan} = 110 (tamamlanan) + 0 (kısmi) = 110
+\]
+
+\[
+\text{Başarı Yüzdesi} = \left( \frac{110}{110} \right) \times 100 = \boxed{100\%}
+\]
+
+---
+
+## 🔁 Sprint Review
+
+### Başarıyla Tamamlanan Özellikler
+
+✅ **Ödev/Not Yükleme Sistemi**: PDF dosya yükleme ve yönetimi tamamlandı
+✅ **Yapay Zeka ile Eye Tracking**: Gerçek zamanlı göz takibi sistemi entegre edildi
+✅ **PDF Viewer Entegrasyonu**: Syncfusion PDF Viewer başarıyla entegre edildi
+✅ **Kullanıcı Takılma Noktası Tespiti**: Segment bazlı analiz sistemi geliştirildi
+✅ **DataTable Layout**: Ödevler sayfası için DataTable implementasyonu
+✅ **Dialog Widget İyileştirmeleri**: PDF görüntüleme ve etüt takibi dialog'ları
+
+### Teknik İyileştirmeler
+
+- **Firebase Storage**: PDF dosya yönetimi için Firebase Storage entegrasyonu
+- **Eye Tracking API**: Eyedid Flutter plugin entegrasyonu
+- **AI Integration**: Firebase AI ile içerik analizi
+- **PDF Processing**: PDF metin çıkarma ve segmentasyon
+- **Real-time Analytics**: Gerçek zamanlı performans analizi
+
+---
+
+## 🔎 Sprint Retrospective
+
+### Güçlü Yönler
+
+- **100% Başarı Oranı**: Tüm planlanan özellikler başarıyla tamamlandı
+- **AI Integration**: Yapay zeka ile eye tracking başarıyla entegre edildi
+- **PDF Management**: Kapsamlı PDF yönetim sistemi geliştirildi
+- **User Analytics**: Detaylı kullanıcı analiz sistemi oluşturuldu
+- **Technical Excellence**: Karmaşık teknik özellikler başarıyla implement edildi
+
+### Gelecek Sprint Hedefleri
+
+- **Performance Optimization**: Eye tracking performansının iyileştirilmesi
+- **Advanced Analytics**: Daha detaylı kullanıcı analizleri
+- **Mobile Optimization**: Mobil cihazlarda performans iyileştirmeleri
+- **User Testing**: Kullanıcı testleri ve geri bildirim toplama
+- **Feature Enhancement**: Mevcut özelliklerin geliştirilmesi
+
+### Öğrenilen Dersler
+
+- Eye tracking teknolojisinin entegrasyonu ve optimizasyonu
+- PDF işleme ve analiz teknikleri
+- AI destekli içerik analizi metodları
+- Gerçek zamanlı veri analizi ve raporlama
+- Karmaşık sistem entegrasyonları
+
+---
+
+## 🎨 Sprint 3 Teknik Görselleri
+
+### PDF Viewer ve Eye Tracking Sistemi
+
+![Eye Tracking Implementation](sprintImages/sprint3/eye_tracking.JPG)
+
+### Ödev Yükleme Sistemi
+
+![Homework Upload System](sprintImages/sprint3/homework_upload.JPG)
