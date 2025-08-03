@@ -1,4 +1,4 @@
-# 🧠 BootcampAI
+# BootcampAI
 
 ## Yapay Zekâ Destekli Etüt Takip Uygulaması
 
@@ -7,7 +7,7 @@
 ## 👥 Takım & Ürün İsmi
 
 **Takım Adı:** Bootcamp Grup 175  
-**Ürün Adı:** Etüt (İsim henüz belirlenmedi)
+**Ürün Adı:** Etüt 
 
 ---
 
