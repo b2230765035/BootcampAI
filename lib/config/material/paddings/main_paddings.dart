@@ -10,7 +10,7 @@ class MainPaddings {
   static EdgeInsetsGeometry padding2 = const EdgeInsets.fromLTRB(0, 0, 0, 50.0);
   static EdgeInsetsGeometry padding3 = const EdgeInsets.fromLTRB(
     40,
-    50,
+    30,
     40,
     10.0,
   );

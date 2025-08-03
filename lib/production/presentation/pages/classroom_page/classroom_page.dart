@@ -37,107 +37,107 @@ class _ClassroomPageState extends State<ClassroomPage> {
     double width = context.getWidth();
     double height = context.getHeigth();
     return Scaffold(
-      body: Container(
-        width: width,
-        height: height,
-        color: MainColors.bgColor3,
-        child: Stack(
-          children: [
-            Positioned(
-              top: 50,
-              left: 10,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed("/main");
-                },
-                icon: MainIcons.leftArrow,
-                iconSize: IconSizes.iconSizeS,
-                color: MainColors.accentColor,
+      body: SafeArea(
+        child: Container(
+          width: width,
+          height: height,
+          color: MainColors.bgColor3,
+          child: Stack(
+            children: [
+              Positioned(
+                top: 20,
+                left: 10,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed("/main");
+                  },
+                  icon: MainIcons.leftArrow,
+                  iconSize: IconSizes.iconSizeS,
+                  color: MainColors.accentColor,
+                ),
               ),
-            ),
-            Positioned(
-              top: 50,
-              child: Column(
-                children: [
-                  SizedBox(height: 50),
-                  SizedBox(
-                    width: width,
-                    child: Center(
-                      child: Text(
-                        widget.roomName,
-                        style: CustomTextStyles.primaryHeaderStyle,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: width,
-                    child: BlocBuilder<ClassroomBloc, ClassroomState>(
-                      builder: (context, state) {
-                        if (state is GetClassroomDataOfUserDone ||
-                            state is SearchUsersLoading ||
-                            state is SearchUsersDone ||
-                            state is SendInvitationLoading ||
-                            state is SendInvitationDone ||
-                            state is SendInvitationError) {
-                          return Center(
-                            child: Text(
-                              "Rol : ${state.data["foundUser"].role}",
-                              style: CustomTextStyles.primaryHeaderStyle,
-                            ),
-                          );
-                        } else {
-                          return Center(
-                            child: Text(
-                              "Rol : Student",
-                              style: CustomTextStyles.primaryHeaderStyle,
-                            ),
-                          );
-                        }
-                      },
-                    ),
-                  ),
-                  SizedBox(height: 100),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("/notes_and_homeworks");
-                    },
-
-                    child: Text(
-                      "Ödevler ve Ders Notları",
-                      style: CustomTextStyles.messageStyle2,
-                    ),
-                  ),
-                  SizedBox(height: 50),
-                  Row(
-                    children: [
-                      OutlinedButton(
-                        onPressed: () {},
+              Positioned(
+                top: 20,
+                child: Column(
+                  children: [
+                    SizedBox(height: 50),
+                    SizedBox(
+                      width: width,
+                      child: Center(
                         child: Text(
-                          "Canlı Sohbet",
-                          style: CustomTextStyles.messageStyle2,
+                          widget.roomName,
+                          style: CustomTextStyles.primaryHeaderStyle,
                         ),
                       ),
-                      SizedBox(width: 50),
-                      CurrentUsers(),
-                    ],
-                  ),
-                  SizedBox(height: 50),
-                  AddUser(roomName: widget.roomName),
-                ],
+                    ),
+                    SizedBox(
+                      width: width,
+                      child: BlocBuilder<ClassroomBloc, ClassroomState>(
+                        builder: (context, state) {
+                          if (state is GetClassroomDataOfUserDone ||
+                              state is SearchUsersLoading ||
+                              state is SearchUsersDone ||
+                              state is SendInvitationLoading ||
+                              state is SendInvitationDone ||
+                              state is SendInvitationError) {
+                            return Center(
+                              child: Text(
+                                "Rol : ${state.data["foundUser"].role == "Teacher" ? "Öğretmen" : "Öğrenci"}",
+                                style: CustomTextStyles.primaryHeaderStyle,
+                              ),
+                            );
+                          } else {
+                            return Center(
+                              child: Text(
+                                "Rol : Student",
+                                style: CustomTextStyles.primaryHeaderStyle,
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 100),
+                    OutlinedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/notes_and_homeworks");
+                      },
+
+                      child: Text(
+                        "Ödevler ve Ders Notları",
+                        style: CustomTextStyles.messageStyle2,
+                      ),
+                    ),
+                    SizedBox(height: 50),
+                    Row(
+                      children: [
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Canlı Sohbet",
+                            style: CustomTextStyles.messageStyle2,
+                          ),
+                        ),
+                        SizedBox(width: 50),
+                        CurrentUsers(),
+                      ],
+                    ),
+                    SizedBox(height: 50),
+                    AddUser(roomName: widget.roomName),
+                  ],
+                ),
               ),
-            ),
-            Positioned(
-              top: 50,
-              right: 10,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).popAndPushNamed("/settings");
-                },
-                icon: MainIcons.settingsIcon,
-                iconSize: IconSizes.iconSizeS,
+              Positioned(
+                top: 20,
+                right: 10,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: MainIcons.settingsIcon,
+                  iconSize: IconSizes.iconSizeS,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

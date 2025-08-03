@@ -683,7 +683,10 @@ class FirestoreChatApi {
           "uploadedAt": Timestamp.now(),
         });
         await roomCollection.doc(roomDoc.id).update({"notes": notes});
-        return CustomResponse(status: true, data: "Uploaded File Succesfully");
+        return await getClassroomDataOfUserWithUsername(
+          roomName: roomName,
+          username: uploadOwner,
+        );
       }
     } catch (e) {
       return CustomResponse(

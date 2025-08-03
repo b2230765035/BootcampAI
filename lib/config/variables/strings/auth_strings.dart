@@ -1,7 +1,7 @@
 class AuthStrings {
   static const String logoUrl = "assets/images/logo.png";
-  static const String logoName = "Projeİsmi";
-  static const String logoSubText = "Slogan 1";
+  static const String logoName = "Edusight";
+  static const String logoSubText = "Akıllı öğrenmenin yeni yolu";
 
   static const String errorText1 = "Boş yer bırakılamaz";
   static const String errorText2 = "7 karakterden kısa olamaz";

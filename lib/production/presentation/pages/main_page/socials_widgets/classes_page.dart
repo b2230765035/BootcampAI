@@ -120,7 +120,7 @@ class _ClassesPageState extends State<ClassesPage> {
                     top: 20,
                     left: 10,
                     child: Text(
-                      "Kayılı Sınıf Bulunamadı",
+                      "Kayıtlı Sınıf Bulunamadı",
                       style: CustomTextStyles.primaryStyle,
                     ),
                   );

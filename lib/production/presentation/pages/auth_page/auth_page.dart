@@ -97,84 +97,89 @@ class _AuthPageState extends State<AuthPage> {
         builder: (context, state) {
           return Stack(
             children: [
-              SingleChildScrollView(
+              SafeArea(
                 child: Container(
                   height: phoneHeigth,
                   width: phoneWidth,
-                  decoration: BoxDecoration(gradient: SideColors.authGradient),
-                  child: Padding(
-                    padding: MainPaddings.padding3,
-                    child: Column(
-                      children: [
-                        Container(
-                          width: IconSizes.authIconSize,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(90)),
-                          ),
-                          child: Image.asset(AuthStrings.logoUrl),
-                        ),
-                        SizedBox(height: MarginSizes.loginMargin2),
-                        Text(
-                          AuthStrings.logoName,
-                          style: CustomTextStyles.primaryHeaderStyleLogin,
-                        ),
-                        SizedBox(height: MarginSizes.loginMargin1),
-                        Text(
-                          AuthStrings.logoSubText,
-                          style: CustomTextStyles.primaryHeaderStyle,
-                        ),
-                        Container(
-                          width: AuthPageSizes.authFormSize,
-                          height: 1,
-                          margin: const EdgeInsets.fromLTRB(0, 25, 0, 40),
-                          color: MainColors.primaryTextColor,
-                        ),
-                        AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 600),
-                          transitionBuilder: (child, animation) {
-                            const begin = Offset(4.0, 0.0);
-                            const end = Offset.zero;
-                            final tween = Tween(begin: begin, end: end);
-                            final offsetAnimation = animation.drive(tween);
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
-                            );
-                          },
-                          child: _isLoginPage
-                              ? const LoginForm()
-                              : const RegisterForm(),
-                        ),
-                        Container(
-                          width: AuthPageSizes.authFormSize,
-                          height: 1,
-                          margin: const EdgeInsets.fromLTRB(0, 25, 0, 10),
-                          color: MainColors.primaryTextColor,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              AuthStrings.goToPage,
-                              style: CustomTextStyles.secondaryStyleLogin2,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  _isLoginPage = !_isLoginPage;
-                                });
-                              },
-                              child: Text(
-                                _isLoginPage
-                                    ? AuthStrings.goToRegisterPage
-                                    : AuthStrings.goToLoginPage,
-                                style: CustomTextStyles.secondaryStyleLogin1,
+                  color: MainColors.bgColor1,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: MainPaddings.padding3,
+                      child: Column(
+                        children: [
+                          Container(
+                            width: IconSizes.authIconSize,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(90),
                               ),
                             ),
-                          ],
-                        ),
-                      ],
+                            child: Image.asset(AuthStrings.logoUrl),
+                          ),
+                          SizedBox(height: MarginSizes.loginMargin2),
+                          Text(
+                            AuthStrings.logoName,
+                            style: CustomTextStyles.primaryHeaderStyleLogin,
+                          ),
+                          SizedBox(height: MarginSizes.loginMargin1),
+                          Text(
+                            AuthStrings.logoSubText,
+                            style: CustomTextStyles.primaryHeaderStyle,
+                            textAlign: TextAlign.center,
+                          ),
+                          Container(
+                            width: AuthPageSizes.authFormSize,
+                            height: 1,
+                            margin: const EdgeInsets.fromLTRB(0, 25, 0, 40),
+                            color: MainColors.primaryTextColor,
+                          ),
+                          AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 600),
+                            transitionBuilder: (child, animation) {
+                              const begin = Offset(4.0, 0.0);
+                              const end = Offset.zero;
+                              final tween = Tween(begin: begin, end: end);
+                              final offsetAnimation = animation.drive(tween);
+                              return SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              );
+                            },
+                            child: _isLoginPage
+                                ? const LoginForm()
+                                : const RegisterForm(),
+                          ),
+                          Container(
+                            width: AuthPageSizes.authFormSize,
+                            height: 1,
+                            margin: const EdgeInsets.fromLTRB(0, 25, 0, 10),
+                            color: MainColors.primaryTextColor,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                AuthStrings.goToPage,
+                                style: CustomTextStyles.secondaryStyleLogin2,
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isLoginPage = !_isLoginPage;
+                                  });
+                                },
+                                child: Text(
+                                  _isLoginPage
+                                      ? AuthStrings.goToRegisterPage
+                                      : AuthStrings.goToLoginPage,
+                                  style: CustomTextStyles.secondaryStyleLogin1,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

@@ -7,9 +7,9 @@ class IconSizes {
 }
 
 class MarginSizes {
-  static double loginMargin1 = 10.0;
-  static double loginMargin1_2 = 15.0;
-  static double loginMargin2 = 25.0;
+  static double loginMargin1 = 5.0;
+  static double loginMargin1_2 = 10.0;
+  static double loginMargin2 = 15.0;
   static double loginMargin3 = 35.0;
 }
 
